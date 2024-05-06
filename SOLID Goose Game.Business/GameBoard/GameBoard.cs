@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLID_Goose_Game.Business.Cases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace SOLID_Goose_Game.Business.GameBoard
 {
     internal class GameBoard : IGameBoard
     {
-        public int[] Boardsize { get; private set; } = new int[63];
+        public ICase[] Boardsize { get; private set; } = new ICase[64];
     }
 }
