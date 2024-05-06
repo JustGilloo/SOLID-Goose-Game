@@ -8,7 +8,7 @@ namespace SOLID_Goose_Game.Tests
         }
 
         [Test]
-        public void Test1()
+        public void NeedsToCheckCaseTypeAndReturnTheType()
         {
             Assert.Pass();
         }

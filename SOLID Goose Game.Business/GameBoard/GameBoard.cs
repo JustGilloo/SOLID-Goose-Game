@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.GameBoard
 {
-    internal class GameBoard : IGameBoard
+    public class GameBoard : IGameBoard
     {
         public ICase[] Boardsize { get; private set; } = new ICase[64];
     }
