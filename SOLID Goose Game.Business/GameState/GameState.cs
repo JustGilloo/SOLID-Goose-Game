@@ -11,7 +11,7 @@ namespace SOLID_Goose_Game.Business.GameState
     {
         public bool IsGameOver { get; set; } = false;
 
-        public void PrintGameState()
+        public void PrintGameState(string message)
         {
             ILogger logger = new ConsoleLogger();
 

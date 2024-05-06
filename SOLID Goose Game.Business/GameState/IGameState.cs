@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.GameState
     public interface IGameState
     {
         bool IsGameOver { get; set; }
-        void PrintGameState();
+        void PrintGameState(string message);
     }
 }
