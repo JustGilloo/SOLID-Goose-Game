@@ -17,21 +17,21 @@ namespace SOLID_Goose_Game.Business.Factories
                 case CaseType.Bridge:
                     return new BridgeCase(ID, caseType, gameState);
                 case CaseType.Inn:
-                    return new InnCase(ID, caseType);
+                    return new InnCase(ID, caseType, gameState);
                 case CaseType.Goose:
-                    return new GooseCase(ID, caseType);
+                    return new GooseCase(ID, caseType, gameState);
                 case CaseType.Well:
-                    return new WellCase(ID, caseType);
+                    return new WellCase(ID, caseType, gameState);
                 case CaseType.Maze:
-                    return new MazeCase(ID, caseType);
+                    return new MazeCase(ID, caseType, gameState);
                 case CaseType.Prison:
-                    return new PrisonCase(ID, caseType);
+                    return new PrisonCase(ID, caseType, gameState);
                 case CaseType.Death:
-                    return new DeathCase(ID, caseType);
+                    return new DeathCase(ID, caseType, gameState);
                 case CaseType.End:
-                    return new EndCase(ID, caseType);
+                    return new EndCase(ID, caseType, gameState);
                 default:
-                    return new RegularCase(ID, caseType);
+                    return new RegularCase(ID, caseType, gameState);
             }
         }
     }

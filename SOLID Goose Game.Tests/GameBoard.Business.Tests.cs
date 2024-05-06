@@ -3,6 +3,7 @@ using SOLID_Goose_Game.Business.Dice;
 using SOLID_Goose_Game.Business.Factories;
 using SOLID_Goose_Game.Business.Cases;
 using System.Diagnostics;
+using SOLID_Goose_Game.Business.GameState;
 namespace SOLID_Goose_Game.Tests
 {
     public class Tests
@@ -17,7 +18,8 @@ namespace SOLID_Goose_Game.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            GameBoard gameboard = new GameBoard(caseFactory);
+            IGameState gameState = new GameState();
+            GameBoard gameboard = new GameBoard(caseFactory, gameState);
 
             //Act
             gameboard.FillInBoardCases();
@@ -31,7 +33,8 @@ namespace SOLID_Goose_Game.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            GameBoard gameboard = new GameBoard(caseFactory);
+            IGameState gameState = new GameState();
+            GameBoard gameboard = new GameBoard(caseFactory, gameState);
 
             //Act & Assert
             gameboard.FillInBoardCases();
