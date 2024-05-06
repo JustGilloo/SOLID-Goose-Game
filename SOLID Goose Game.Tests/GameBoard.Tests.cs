@@ -1,3 +1,4 @@
+using SOLID_Goose_Game.Business.GameBoard;
 namespace SOLID_Goose_Game.Tests
 {
     public class Tests
@@ -10,7 +11,12 @@ namespace SOLID_Goose_Game.Tests
         [Test]
         public void NeedsToCheckCaseTypeAndReturnTheType()
         {
-            Assert.Pass();
+            //Arrange
+            GameBoard gameboard = new GameBoard();
+
+            //Act
+
+            //Assert
         }
     }
 }
