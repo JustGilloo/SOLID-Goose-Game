@@ -1,5 +1,6 @@
 ﻿using SOLID_Goose_Game.Business.Cases;
 using SOLID_Goose_Game.Business.Factories;
+using SOLID_Goose_Game.Business.Players;
 
 namespace SOLID_Goose_Game.Business.GameBoard
 {
@@ -26,6 +27,14 @@ namespace SOLID_Goose_Game.Business.GameBoard
                 {
                     this.Boardsize[i] = this.caseFactory.Create(CaseType.Goose, i);
                 }
+            }
+        }
+
+        public void CheckPlayerPositionCaseType(Player player)
+        {
+            if (player.CurrentPosition < 63)
+            {
+                Boardsize[player.CurrentPosition].ResolveCase(player);
             }
         }
     }

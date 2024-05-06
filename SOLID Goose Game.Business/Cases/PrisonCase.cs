@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLID_Goose_Game.Business.Players;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace SOLID_Goose_Game.Business.Cases
         {
             this.ID = id;
             this.Type = type;
+        }
+
+        public void ResolveCase(Player player)
+        {
+            throw new NotImplementedException();
         }
     }
 }
