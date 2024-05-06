@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.Players
 {
-    internal class Player : IPlayer
+    public class Player : IPlayer
     {
-        public string PlayerNumber { get; set; }
+        public string PlayerName { get; set; }
         public int StartingPosition { get; set; }
-        public int EndingPosition { get; set; }
+        public int CurrentPosition { get; set; }
+
+        public void DetermineNewPosition(int[] dieRolls)
+        {
+            StartingPosition = CurrentPosition;
+            CurrentPosition += dieRolls.Sum();
+        }
     }
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.Players
 {
-    internal interface IPlayer
+    public interface IPlayer
     {
-        string PlayerNumber { get; }
+        string PlayerName { get; }
         int StartingPosition { get; set; }
-        int EndingPosition { get; set; }
+        int CurrentPosition { get; set; }
+
+        void DetermineNewPosition(int[] dieRolls);
     }
 }
