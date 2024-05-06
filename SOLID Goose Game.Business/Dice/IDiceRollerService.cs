@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.Dice
 {
-    internal interface IDiceRoller
+    internal interface IDiceRollerService
     {
-        int RollTotal { get; set; }
-        int AmountOfDice { get; set; }
-        int[] RollResults { get; set; }
+
     }
 }
