@@ -15,14 +15,13 @@ namespace SOLID_Goose_Game.Tests
         {
             //Arrange
             Player player = new Player();
-            Random random = new Random();
+            DiceRollerService diceroller = new DiceRollerService();
             int[] dieRolls = new int[2];
             player.StartingPosition = 0;
             player.CurrentPosition = 0;
+            dieRolls = diceroller.RollDiceArray(2, 6);
+            int expectedResult = dieRolls.Sum();
 
-            dieRolls[0] = random.Next(1, 7);
-            dieRolls[1] = random.Next(1, 7); 
-            int expectedResult = dieRolls[0] + dieRolls[1];
 
             //Act
             player.DetermineNewPosition(dieRolls);
