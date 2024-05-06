@@ -23,7 +23,14 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
-            this.gameState.PrintGameState(this.Type.ToString());
+            ResolveBridgeCase(player);
+            this.gameState.PrintGameState($"{player.PlayerName} landde op een brug en sprong meteen naar vakje {player.CurrentPosition}.");
+        }
+
+        public void ResolveBridgeCase(Player player)
+        {
+            player.CurrentPosition *= 2;
+            player.StartingPosition = player.CurrentPosition;
         }
     }
 }

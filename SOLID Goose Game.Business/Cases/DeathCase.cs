@@ -23,7 +23,13 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
-            this.gameState.PrintGameState(this.Type.ToString());
+            ResolveDeathCase(player);
+            this.gameState.PrintGameState($"{player.PlayerName} landde op de guillotine! U bent dood, uw nieuw leven begint op vakje {player.CurrentPosition}.");
+        }
+        public void ResolveDeathCase(Player player)
+        {
+            player.CurrentPosition = 0;
+            player.StartingPosition = 0;
         }
     }
 }
