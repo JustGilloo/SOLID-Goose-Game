@@ -23,7 +23,7 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
-           
+            this.gameState.PrintGameState();
         }
     }
 }

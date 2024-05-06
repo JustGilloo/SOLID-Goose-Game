@@ -24,7 +24,7 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
-            throw new NotImplementedException();
+            this.gameState.PrintGameState();
         }
     }
 }
