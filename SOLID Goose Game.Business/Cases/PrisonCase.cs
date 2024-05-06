@@ -8,7 +8,13 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public class PrisonCase : IPrisonCase
     {
-        public int ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public CaseType Type { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int ID { get; set; }
+        public CaseType Type { get; set; }
+
+        public PrisonCase(int id, CaseType type)
+        {
+            this.ID = id;
+            this.Type = type;
+        }
     }
 }

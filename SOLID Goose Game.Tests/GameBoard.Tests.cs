@@ -1,5 +1,6 @@
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.Dice;
+using SOLID_Goose_Game.Business.Factories;
 namespace SOLID_Goose_Game.Tests
 {
     public class Tests
@@ -13,8 +14,8 @@ namespace SOLID_Goose_Game.Tests
         public void AssertsThatBoardIsFilledWithCases()
         {
             //Arrange
-            IDiceRollerService diceroller = new DiceRollerService();
-            GameBoard gameboard = new GameBoard(diceroller);
+            ICaseFactory caseFactory = new CaseFactory();
+            GameBoard gameboard = new GameBoard(caseFactory);
 
             //Act
             gameboard.FillInBoardCases();
