@@ -1,4 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.Cases;
+using SOLID_Goose_Game.Business.Dice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,21 @@ namespace SOLID_Goose_Game.Business.GameBoard
 {
     public class GameBoard : IGameBoard
     {
+        IDiceRollerService diceroller;
         public ICase[] Boardsize { get; private set; } = new ICase[64];
+
+        public GameBoard(IDiceRollerService diceroller) {
+
+            this.diceroller = new DiceRollerService();
+        }
+
+        public void FillInBoardCases()
+        {
+            for (int i = 0; i < Boardsize.Length; i++)
+            {
+               //Hier moet de factory opgeroepen worden
+               
+            }
+        }
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Business.Dice
+namespace SOLID_Goose_Game.Business.Cases
 {
-    public interface IDiceRollerService
+    public interface IGooseCase : ICase
     {
-
     }
 }

@@ -1,4 +1,5 @@
 using SOLID_Goose_Game.Business.GameBoard;
+using SOLID_Goose_Game.Business.Dice;
 namespace SOLID_Goose_Game.Tests
 {
     public class Tests
@@ -9,14 +10,17 @@ namespace SOLID_Goose_Game.Tests
         }
 
         [Test]
-        public void NeedsToCheckCaseTypeAndReturnTheType()
+        public void AssertsThatBoardIsFilledWithCases()
         {
             //Arrange
-            GameBoard gameboard = new GameBoard();
+            IDiceRollerService diceroller = new DiceRollerService();
+            GameBoard gameboard = new GameBoard(diceroller);
 
             //Act
+            gameboard.FillInBoardCases();
 
             //Assert
+            Assert.That(gameboard.Boardsize != null, Is.True);
         }
     }
 }
