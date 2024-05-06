@@ -1,11 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.Cases;
-using SOLID_Goose_Game.Business.Dice;
 using SOLID_Goose_Game.Business.Factories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.GameBoard
 {
@@ -14,7 +8,8 @@ namespace SOLID_Goose_Game.Business.GameBoard
         ICaseFactory caseFactory;
         public ICase[] Boardsize { get; private set; } = new ICase[64];
 
-        public GameBoard(ICaseFactory caseFactory) {
+        public GameBoard(ICaseFactory caseFactory)
+        {
 
             this.caseFactory = caseFactory;
         }
@@ -23,8 +18,14 @@ namespace SOLID_Goose_Game.Business.GameBoard
         {
             for (int i = 0; i < Boardsize.Length; i++)
             {
-                //Hier moet de factory opgeroepen worden
-               this.Boardsize[i] = this.caseFactory.Create((CaseType)i, i);
+                if ((i % 9 != 0 && i % 9 != 5) || i == 0 || i == Boardsize.Length - 1)
+                {
+                    this.Boardsize[i] = this.caseFactory.Create((CaseType)i, i);
+                }
+                else
+                {
+                    this.Boardsize[i] = this.caseFactory.Create(CaseType.Goose, i);
+                }
             }
         }
     }
