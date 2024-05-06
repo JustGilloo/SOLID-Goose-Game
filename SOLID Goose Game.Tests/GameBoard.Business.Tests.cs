@@ -67,7 +67,7 @@ namespace SOLID_Goose_Game.Tests
 
             //Act
             player.DetermineNewPosition(dieRolls);
-            gameboard.CheckPlayerPositionCaseType(player);
+            gameboard.HandleCaseType(player);
 
             //Assert
             Assert.That(player.StartingPosition, Is.EqualTo(expectedStartingPosition));

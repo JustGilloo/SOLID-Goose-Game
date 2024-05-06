@@ -14,6 +14,6 @@ namespace SOLID_Goose_Game.Business.GameBoard
 
         void FillInBoardCases();
 
-        void CheckPlayerPositionCaseType(Player player);
+        void HandleCaseType(Player player);
     }
 }

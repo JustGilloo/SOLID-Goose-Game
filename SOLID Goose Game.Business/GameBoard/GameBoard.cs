@@ -33,7 +33,7 @@ namespace SOLID_Goose_Game.Business.GameBoard
             }
         }
 
-        public void CheckPlayerPositionCaseType(Player player)
+        public void HandleCaseType(Player player)
         {
             if (player.CurrentPosition < 63)
             {
