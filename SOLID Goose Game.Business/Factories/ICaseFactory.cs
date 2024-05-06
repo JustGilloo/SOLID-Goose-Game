@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.Factories
 {
     public interface ICaseFactory
     {
-        ICase Create(CaseType caseType);
+        ICase Create(CaseType caseType, int ID);
     }
 }

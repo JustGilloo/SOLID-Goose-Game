@@ -9,7 +9,7 @@ namespace SOLID_Goose_Game.Business.Factories
 {
     public class CaseFactory : ICaseFactory
     {
-        public ICase Create(CaseType caseType)
+        public ICase Create(CaseType caseType, int ID)
         {
             switch (caseType)
             {
@@ -30,7 +30,7 @@ namespace SOLID_Goose_Game.Business.Factories
                 case CaseType.End:
                     return new EndCase();
                 default:
-                    throw new ArgumentException();
+                    return new Case();
             }
         }
     }

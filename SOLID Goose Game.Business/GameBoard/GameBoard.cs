@@ -24,7 +24,7 @@ namespace SOLID_Goose_Game.Business.GameBoard
             for (int i = 0; i < Boardsize.Length; i++)
             {
                 //Hier moet de factory opgeroepen worden
-                this.caseFactory.Create((CaseType)i);
+               this.Boardsize[i] = this.caseFactory.Create((CaseType)i, i);
             }
         }
     }
