@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.GameState
 {
-    internal interface IGameState
+    public interface IGameState
     {
         bool IsGameOver { get; set; }
+        void PrintGameState();
     }
 }

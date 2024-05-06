@@ -1,4 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.Cases;
+using SOLID_Goose_Game.Business.GameState;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace SOLID_Goose_Game.Business.Factories
 {
     public class CaseFactory : ICaseFactory
     {
-        public ICase Create(CaseType caseType, int ID)
+        public ICase Create(CaseType caseType, int ID, IGameState gameState)
         {
             switch (caseType)
             {
                 case CaseType.Bridge:
-                    return new BridgeCase(ID, caseType);
+                    return new BridgeCase(ID, caseType, gameState);
                 case CaseType.Inn:
                     return new InnCase(ID, caseType);
                 case CaseType.Goose:

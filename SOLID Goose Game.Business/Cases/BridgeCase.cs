@@ -1,4 +1,5 @@
-﻿using SOLID_Goose_Game.Business.Players;
+﻿using SOLID_Goose_Game.Business.GameState;
+using SOLID_Goose_Game.Business.Players;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,20 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public class BridgeCase : IBridgeCase
     {
+        private IGameState gameState;
         public int ID { get; set; }
         public CaseType Type { get; set; }
 
-        public BridgeCase(int id, CaseType type)
+        public BridgeCase(int id, CaseType type, IGameState gameState)
         {
             this.ID = id;
             this.Type = type;
+            this.gameState = gameState;
         }
 
         public void ResolveCase(Player player)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }
