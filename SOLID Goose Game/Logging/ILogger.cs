@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Logging
 {
-    internal class ILogger
+    public interface ILogger
     {
+        void LogMessage(string message);
     }
 }

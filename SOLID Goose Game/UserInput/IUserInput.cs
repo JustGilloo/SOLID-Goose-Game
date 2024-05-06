@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.UserInput
 {
-    internal interface IUserInput
+    public interface IUserInput
     {
+        string GetUserInput();
     }
 }
