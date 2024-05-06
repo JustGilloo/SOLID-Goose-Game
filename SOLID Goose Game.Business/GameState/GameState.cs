@@ -15,7 +15,7 @@ namespace SOLID_Goose_Game.Business.GameState
         {
             ILogger logger = new ConsoleLogger();
 
-            logger.LogMessage($"Player moved!");
+            logger.LogMessage(message);
         }
     }
 }
