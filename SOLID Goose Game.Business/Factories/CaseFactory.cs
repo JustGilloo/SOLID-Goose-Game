@@ -14,23 +14,23 @@ namespace SOLID_Goose_Game.Business.Factories
             switch (caseType)
             {
                 case CaseType.Bridge:
-                    return new BridgeCase();
+                    return new BridgeCase(ID, caseType);
                 case CaseType.Inn:
-                    return new InnCase();
+                    return new InnCase(ID, caseType);
                 case CaseType.Goose:
-                    return new GooseCase();
+                    return new GooseCase(ID, caseType);
                 case CaseType.Well:
-                    return new WellCase();
+                    return new WellCase(ID, caseType);
                 case CaseType.Maze:
-                    return new MazeCase();
+                    return new MazeCase(ID, caseType);
                 case CaseType.Prison:
-                    return new PrisonCase();
+                    return new PrisonCase(ID, caseType);
                 case CaseType.Death:
-                    return new DeathCase();
+                    return new DeathCase(ID, caseType);
                 case CaseType.End:
-                    return new EndCase();
+                    return new EndCase(ID, caseType);
                 default:
-                    return new Case();
+                    return new RegularCase(ID, caseType);
             }
         }
     }
