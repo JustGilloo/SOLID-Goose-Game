@@ -17,6 +17,8 @@ namespace SOLID_Goose_Game.Business.Factories
                     return new BridgeCase();
                 case CaseType.Inn:
                     return new InnCase();
+                case CaseType.Goose:
+                    return new GooseCase();
                 case CaseType.Well:
                     return new WellCase();
                 case CaseType.Maze:
