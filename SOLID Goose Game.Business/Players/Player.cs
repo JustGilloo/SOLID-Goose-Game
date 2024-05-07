@@ -24,8 +24,11 @@ namespace SOLID_Goose_Game.Business.Players
 
         public void DetermineNewPosition(int[] dieRolls)
         {
-            CurrentPosition += dieRolls.Sum();
-            StartingPosition = CurrentPosition;
+            if (this.CanMove == true)
+            {
+                CurrentPosition += dieRolls.Sum();
+                StartingPosition = CurrentPosition;
+            }
         }
     }
 }
