@@ -23,6 +23,7 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
+            DeterminePlayerMovementDirection(player);
             this.gameState.PrintGameState(this.Type.ToString());
         }
         public void DeterminePlayerMovementDirection(Player player)
@@ -37,7 +38,7 @@ namespace SOLID_Goose_Game.Business.Cases
         }
         public void MovePlayerForwards(Player player)
         {
-            player.DetermineNewPosition();
+            player.DetermineNewPosition(player.DiceResultArray);
         }
         public void MovePlayerBackwards(Player player)
         {

@@ -27,6 +27,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
             int expectedPosition = 10;
 
             //Act
+            gameBoard.FillInBoardCases();
             player.DetermineNewPosition(dieRolls);
             gameBoard.HandleCaseType(player);
 

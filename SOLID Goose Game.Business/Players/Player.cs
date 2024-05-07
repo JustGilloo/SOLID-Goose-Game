@@ -30,7 +30,7 @@ namespace SOLID_Goose_Game.Business.Players
             {
                 this.DiceResultArray = dieRolls;
                 CurrentPosition += dieRolls.Sum();
-                StartingPosition = CurrentPosition;
+                //StartingPosition = CurrentPosition;
             }
         }
     }
