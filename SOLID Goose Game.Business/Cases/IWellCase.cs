@@ -12,5 +12,6 @@ namespace SOLID_Goose_Game.Business.Cases
         Player[] StuckPlayerArray { get; set; }
         bool CheckIfWellContainsPlayer();
         void TrapPlayerInWell(Player player);
+        void EmptyWell();
     }
 }

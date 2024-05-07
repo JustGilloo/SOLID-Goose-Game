@@ -1,10 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.Cases
 {
@@ -20,19 +15,31 @@ namespace SOLID_Goose_Game.Business.Cases
             this.ID = id;
             this.Type = type;
             this.gameState = gameState;
+            this.StuckPlayerArray = new Player[1];
         }
 
         public void ResolveCase(Player player)
         {
+            if (CheckIfWellContainsPlayer())
+            {
+                EmptyWell();
+            }
+            TrapPlayerInWell(player);
             this.gameState.PrintGameState(this.Type.ToString());
         }
         public bool CheckIfWellContainsPlayer()
         {
-            throw new NotImplementedException();
+            return (this.StuckPlayerArray[0] != null);
         }
         public void TrapPlayerInWell(Player player)
         {
-            throw new NotImplementedException();
+            player.CanMove = false;
+            this.StuckPlayerArray[0] = player;
+        }
+        public void EmptyWell()
+        {
+            this.StuckPlayerArray[0].CanMove = true;
+            this.StuckPlayerArray = null;
         }
     }
 }
