@@ -13,6 +13,7 @@ namespace SOLID_Goose_Game.Business.Cases
         IGameState gameState;
         public int ID { get; set; }
         public CaseType Type { get; set; }
+        public Player[] StuckPlayerArray { get; set; }
 
         public WellCase(int id, CaseType type, IGameState gameState)
         {
@@ -24,6 +25,14 @@ namespace SOLID_Goose_Game.Business.Cases
         public void ResolveCase(Player player)
         {
             this.gameState.PrintGameState(this.Type.ToString());
+        }
+        public bool CheckIfWellContainsPlayer()
+        {
+            throw new NotImplementedException();
+        }
+        public void TrapPlayerInWell(Player player)
+        {
+            throw new NotImplementedException();
         }
     }
 }
