@@ -13,7 +13,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
     internal class BridgeCase
     {
         [Test]
-        public void CheckIfDeathCaseResetsPlayerTo0()
+        public void CheckIBridgeCaseMovesPlayerTo12()
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();

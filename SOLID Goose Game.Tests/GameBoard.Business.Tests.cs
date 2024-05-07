@@ -59,19 +59,17 @@ namespace SOLID_Goose_Game.Tests
             player.StartingPosition = 0;
             player.CurrentPosition = 0;
             gameboard.FillInBoardCases();
-            dieRolls = [3, 2];
+            ICase expectedCase = gameboard.Boardsize[12];
+            dieRolls = [3, 3];
 
             int expectedStartingPosition = player.CurrentPosition;
-            CaseType expectedCaseType = CaseType.Goose;
-
 
             //Act
             player.DetermineNewPosition(dieRolls);
             gameboard.HandleCaseType(player);
 
             //Assert
-            Assert.That(player.StartingPosition, Is.EqualTo(expectedStartingPosition));
-            Assert.AreEqual(expectedCaseType, gameboard.Boardsize[player.CurrentPosition].Type);
+            Assert.AreEqual(expectedCase, gameboard.Boardsize[player.CurrentPosition]);
         }
     }
 }

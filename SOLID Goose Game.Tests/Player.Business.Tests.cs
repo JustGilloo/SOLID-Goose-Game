@@ -19,7 +19,7 @@ namespace SOLID_Goose_Game.Tests
             int[] dieRolls = new int[2];
             player.StartingPosition = 0;
             player.CurrentPosition = 0;
-            dieRolls = diceroller.RollDiceArray(2, 6);
+            dieRolls = [5, 5];
             int expectedResult = dieRolls.Sum();
 
 
