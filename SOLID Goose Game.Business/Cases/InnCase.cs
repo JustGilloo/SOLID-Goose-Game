@@ -24,19 +24,20 @@ namespace SOLID_Goose_Game.Business.Cases
         public void ResolveCase(Player player)
         {
             this.gameState.PrintGameState(this.Type.ToString());
+            ResolveInnCase(player);
         }
         public void ResolveInnCase(Player player)
         {
-            player.EffectDurationInTurns = 1;
-            player.CanMove = false;
-            while (player.EffectDurationInTurns > 0)
-            {
-                player.EffectDurationInTurns--;
+            switch (player.CanMove) {
+            case true:
+                    player.CanMove = false;
+                    player.EffectDurationInTurns = 1;
+                    break;
+            case false:
+                    player.CanMove = true;
+                    player.EffectDurationInTurns--;
             }
-            if (player.EffectDurationInTurns == 0)
-            {
-                player.CanMove = true;
-            }
+            
         }
     }
 }

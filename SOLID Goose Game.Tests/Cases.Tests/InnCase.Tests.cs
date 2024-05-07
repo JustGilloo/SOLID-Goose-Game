@@ -25,6 +25,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
             //Act
             gameBoard.FillInBoardCases();
             player.DetermineNewPosition(dieRolls);
+            gameBoard.HandleCaseType(player);
             //following is for MazeCase Resolve
            
 
