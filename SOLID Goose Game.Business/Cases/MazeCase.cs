@@ -23,7 +23,13 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
+            ResolveMazeCase(player);
             this.gameState.PrintGameState(this.Type.ToString());
+        }
+        public void ResolveMazeCase(Player player)
+        {
+            player.CurrentPosition = 39;
+            player.StartingPosition = 39;
         }
     }
 }
