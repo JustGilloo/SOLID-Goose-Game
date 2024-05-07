@@ -38,7 +38,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
         [Test]
         public void AssertsIfPlayerMovementDirectionNeedsToBeBackwardsWhenGooseCaseIsTriggered()
         {
-
+            
         }
     }
 }
