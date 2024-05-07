@@ -32,7 +32,7 @@ namespace SOLID_Goose_Game.Business.Players
                 CurrentPosition += dieRolls.Sum();
             }
         }
-        public void SetStartOfTurnPosition()
+        public void SetStartingPosition()
         {
             StartingPosition = CurrentPosition;
         }
