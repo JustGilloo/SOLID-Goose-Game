@@ -25,5 +25,17 @@ namespace SOLID_Goose_Game.Business.Cases
         {
             this.gameState.PrintGameState(this.Type.ToString());
         }
+        public void DeterminePlayerMovementDirection(Player player)
+        {
+            throw new NotImplementedException();
+        }
+        public void MovePlayerForwards(Player player)
+        {
+            throw new NotImplementedException();
+        }
+        public void MovePlayerBackwards(Player player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
