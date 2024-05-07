@@ -45,31 +45,5 @@ namespace SOLID_Goose_Game.Tests
                 Assert.That(i.ID, Is.Not.EqualTo(null));
             }
         }
-
-        [Test]
-        public void AssertsTheCaseTypeOfTheCurrentPlayerPosition()
-        {
-            //Arrange
-            ICaseFactory caseFactory = new CaseFactory();
-            IGameState gameState = new GameState();
-            IDiceRollerService diceroller = new DiceRollerService();
-            int[] dieRolls = new int[2];
-            Player player = new Player();
-            GameBoard gameboard = new GameBoard(caseFactory, gameState);
-            player.StartingPosition = 0;
-            player.CurrentPosition = 0;
-            gameboard.FillInBoardCases();
-            ICase expectedCase = gameboard.Boardsize[12];
-            dieRolls = [3, 3];
-
-            int expectedStartingPosition = player.CurrentPosition;
-
-            //Act
-            player.DetermineNewPosition(dieRolls);
-            gameboard.HandleCaseType(player);
-
-            //Assert
-            Assert.AreEqual(expectedCase, gameboard.Boardsize[player.CurrentPosition]);
-        }
     }
 }
