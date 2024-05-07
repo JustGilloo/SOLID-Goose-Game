@@ -27,11 +27,17 @@ namespace SOLID_Goose_Game.Business.Cases
         }
         public void DeterminePlayerMovementDirection(Player player)
         {
-            throw new NotImplementedException();
+            if (this.ID > player.StartingPosition)
+            {
+                MovePlayerForwards(player);
+            } else
+            {
+                MovePlayerBackwards(player);
+            }
         }
         public void MovePlayerForwards(Player player)
         {
-            throw new NotImplementedException();
+            player.DetermineNewPosition();
         }
         public void MovePlayerBackwards(Player player)
         {
