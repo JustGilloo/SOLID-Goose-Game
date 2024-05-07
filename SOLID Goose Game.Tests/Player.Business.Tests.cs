@@ -14,7 +14,7 @@ namespace SOLID_Goose_Game.Tests
         public void AssertsThatPlayerPositionCorrectlyChanges()
         {
             //Arrange
-            Player player = new Player();
+            Player player = new Player("Player");
             DiceRollerService diceroller = new DiceRollerService();
             int[] dieRolls = new int[2];
             player.StartingPosition = 0;

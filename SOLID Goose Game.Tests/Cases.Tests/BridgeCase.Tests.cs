@@ -18,7 +18,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
             IGameState gameState = new GameState();
-            Player player = new Player();
+            Player player = new Player("Speler");
             player.CurrentPosition = 6;
             player.StartingPosition = 0;
             IGameBoard gameBoard = new GameBoard(caseFactory, gameState);
