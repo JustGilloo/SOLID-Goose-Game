@@ -13,7 +13,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
     internal class WellCase
     {
         [Test]
-        public void AssertsThatTheWellCorrectlyTakesInAPlayerIndefinitely()
+        public void AssertsThatTheWellCaseCorrectlyTakesInAPlayer()
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
