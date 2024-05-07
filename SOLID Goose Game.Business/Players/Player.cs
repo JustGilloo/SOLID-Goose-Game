@@ -15,17 +15,20 @@ namespace SOLID_Goose_Game.Business.Players
             this.CurrentPosition = 0;
             this.EffectDurationInTurns = 0;
             this.CanMove = true;
+            this.DiceResultArray = new int[2];
         }
         public string PlayerName { get; set; }
         public int StartingPosition { get; set; }
         public int CurrentPosition { get; set; }
         public int EffectDurationInTurns { get; set; }
         public bool CanMove { get; set; } 
+        public int[] DiceResultArray { get; set; } 
 
         public void DetermineNewPosition(int[] dieRolls)
         {
             if (this.CanMove == true)
             {
+                this.DiceResultArray = dieRolls;
                 CurrentPosition += dieRolls.Sum();
                 StartingPosition = CurrentPosition;
             }
