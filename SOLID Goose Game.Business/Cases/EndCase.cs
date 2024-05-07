@@ -25,5 +25,13 @@ namespace SOLID_Goose_Game.Business.Cases
         {
             this.gameState.PrintGameState(this.Type.ToString());
         }
+        public void CheckPlayerRollExceedsID(Player player)
+        {
+            throw new NotImplementedException();
+        }
+        public void MovePlayerBack(Player player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
