@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public interface IInnCase : ICase
     {
-        void ResolveInnCase(Player player);
+        void ApplyInnCaseEffect(Player player);
     }
 }

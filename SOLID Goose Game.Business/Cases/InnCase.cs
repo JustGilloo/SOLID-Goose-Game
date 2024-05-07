@@ -18,10 +18,10 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
-            ResolveInnCase(player);
+            ApplyInnCaseEffect(player);
             this.gameState.PrintGameState(this.Type.ToString());
         }
-        public void ResolveInnCase(Player player)
+        public void ApplyInnCaseEffect(Player player)
         {
             switch (player.CanMove)
             {

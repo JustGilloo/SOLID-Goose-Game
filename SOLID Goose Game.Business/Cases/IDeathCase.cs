@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public interface IDeathCase : ICase
     {
-        void ResolveDeathCase(Player player);
+        void ApplyDeathCaseEffect(Player player);
     }
 }

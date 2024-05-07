@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public interface IMazeCase : ICase
     {
-        void ResolveMazeCase(Player player);
+        void ApplyMazeCase(Player player);
     }
 }

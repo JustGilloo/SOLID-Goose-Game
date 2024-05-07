@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public interface IBridgeCase : ICase
     {
-        void ResolveBridgeCase(Player player);
+        void ApplyBridgeCaseEffect(Player player);
     }
 }
