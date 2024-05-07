@@ -11,6 +11,8 @@ namespace SOLID_Goose_Game.Business.Players
         string PlayerName { get; }
         int StartingPosition { get; set; }
         int CurrentPosition { get; set; }
+        int EffectDurationInTurns { get; set; }
+        bool CanMove { get; set; } 
 
         void DetermineNewPosition(int[] dieRolls);
     }
