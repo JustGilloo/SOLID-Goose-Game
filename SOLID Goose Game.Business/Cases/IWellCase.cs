@@ -9,7 +9,7 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public interface IWellCase : ICase
     {
-        Player[] StuckPlayerArray { get; set; }
+        Player[] TrappedPlayerArray { get; set; }
         bool CheckIfWellContainsPlayer();
         void TrapPlayerInWell(Player player);
         void EmptyWell();
