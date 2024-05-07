@@ -25,5 +25,10 @@ namespace SOLID_Goose_Game.Business.Cases
         {
             this.gameState.PrintGameState(this.Type.ToString());
         }
+
+        public void ApplyPrisonCase(Player player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
