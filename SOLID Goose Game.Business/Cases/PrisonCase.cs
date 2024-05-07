@@ -23,12 +23,26 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
+            ApplyPrisonCaseEffect(player);
             this.gameState.PrintGameState(this.Type.ToString());
         }
 
-        public void ApplyPrisonCase(Player player)
+        public void ApplyPrisonCaseEffect(Player player)
         {
-            throw new NotImplementedException();
+            switch (player.CanMove)
+            {
+                case true:
+                    player.CanMove = false;
+                    player.EffectDurationInTurns = 3;
+                    break;
+                case false:
+                    player.EffectDurationInTurns--;
+                    if (player.EffectDurationInTurns == 0)
+                    {
+                        player.CanMove = true;
+                    }
+                    break;
+            }
         }
     }
 }

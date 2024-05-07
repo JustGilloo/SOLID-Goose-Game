@@ -9,6 +9,6 @@ namespace SOLID_Goose_Game.Business.Cases
 {
     public interface IPrisonCase : ICase
     {
-        void ApplyPrisonCase(Player player);
+        void ApplyPrisonCaseEffect(Player player);
     }
 }
