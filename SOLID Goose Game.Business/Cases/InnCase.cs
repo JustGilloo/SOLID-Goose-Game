@@ -1,10 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Business.Cases
 {
@@ -23,21 +18,23 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public void ResolveCase(Player player)
         {
-            this.gameState.PrintGameState(this.Type.ToString());
             ResolveInnCase(player);
+            this.gameState.PrintGameState(this.Type.ToString());
         }
         public void ResolveInnCase(Player player)
         {
-            switch (player.CanMove) {
-            case true:
+            switch (player.CanMove)
+            {
+                case true:
                     player.CanMove = false;
                     player.EffectDurationInTurns = 1;
                     break;
-            case false:
+                case false:
                     player.CanMove = true;
                     player.EffectDurationInTurns--;
+                    break;
             }
-            
+
         }
     }
 }

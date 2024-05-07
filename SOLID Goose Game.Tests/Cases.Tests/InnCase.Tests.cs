@@ -26,9 +26,6 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
             gameBoard.FillInBoardCases();
             player.DetermineNewPosition(dieRolls);
             gameBoard.HandleCaseType(player);
-            //following is for MazeCase Resolve
-           
-
 
             //Assert
             Assert.AreEqual(expectedPosition, player.CurrentPosition);
