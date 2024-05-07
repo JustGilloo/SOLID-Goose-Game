@@ -28,8 +28,8 @@ namespace SOLID_Goose_Game.Business.Cases
         }
         public void ResolveMazeCase(Player player)
         {
-            player.CurrentPosition = 39;
-            player.StartingPosition = 39;
+            player.CurrentPosition -= 3;
+            player.StartingPosition = player.CurrentPosition;
         }
     }
 }
