@@ -16,5 +16,6 @@ namespace SOLID_Goose_Game.Business.Players
         int[] DiceResultArray { get; set; } 
 
         void DetermineNewPosition(int[] dieRolls);
+        void SetStartOfTurnPosition();
     }
 }
