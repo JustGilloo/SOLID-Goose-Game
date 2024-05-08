@@ -9,5 +9,7 @@ namespace SOLID_Goose_Game.UserInput
     public interface IUserInput
     {
         string GetUserInput();
+
+        int ValidateIfInputIsInt(string input);
     }
 }
