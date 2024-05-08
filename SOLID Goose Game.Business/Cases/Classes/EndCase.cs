@@ -30,7 +30,10 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         {
             CheckPlayerRollExceedsID(player);
             gameState.PrintGameState(Type.ToString());
-            gameBoard.HandleCaseType(player);
+            if (gameState.IsGameOver == false)
+            {
+                gameBoard.HandleCaseType(player);
+            }
         }
         public void CheckPlayerRollExceedsID(Player player)
         {
