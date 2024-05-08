@@ -26,7 +26,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             ApplyPrisonCaseEffect(player);
-            logger.LogMessage(this.Type.ToString());
+            logger.LogMessage($"{player.PlayerName} landde op de gevangenis en blijft er {player.EffectDurationInTurns} beurten opgesloten.");
         }
 
         public void ApplyPrisonCaseEffect(Player player)
