@@ -29,7 +29,14 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
 
         public void ResolveCase(Player player)
         {
-            DeterminePlayerMovementDirection(player);
+            if (player.StartingPosition == 0 && this.ID == 9)
+            {
+                HandleGooseCaseException(player);
+            }
+            else
+            {
+                DeterminePlayerMovementDirection(player);
+            }
             logger.LogMessage($"{player.PlayerName} kwam terecht op een Ganzenvakje en werd gestuurd naar vakje {player.CurrentPosition}.");
             gameBoard.HandleCaseType(player);
         }
@@ -42,6 +49,16 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
             else
             {
                 MovePlayerBackwards(player);
+            }
+        }
+        public void HandleGooseCaseException(Player player)
+        {
+            if (player.DiceResultArray == (int[])[4, 5] && player.DiceResultArray == (int[])[5, 4])
+            {
+                player.CurrentPosition = 26;
+            } else
+            {
+                player.CurrentPosition = 53;
             }
         }
         public void MovePlayerForwards(Player player)

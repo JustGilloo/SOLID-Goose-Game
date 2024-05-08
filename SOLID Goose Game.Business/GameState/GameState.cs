@@ -63,9 +63,11 @@ namespace SOLID_Goose_Game.Business.GameState
             //Speler wiens beurt het is uit de lijst halen en laten dobbelen => fetchplayerfunctie
             IPlayer player = FetchActiveTurnPlayer(indexToFetch);
             //Speler oproepen om te bewegen
+            player.SetStartingPosition();
             player.DetermineNewPosition(this.diceRoller.RollDiceArray(2, 6));
             //Gameboard check waarop speler landt
             this.gameBoard.HandleCaseType((Player)player);
+            logger.LogMessage("");
             return (player.CurrentPosition == 63);
         }
         public IPlayer FetchActiveTurnPlayer(int indexToFetch)

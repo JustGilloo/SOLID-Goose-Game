@@ -10,6 +10,7 @@ namespace SOLID_Goose_Game.Business.Cases.Interfaces
     public interface IGooseCase : ICase
     {
         void DeterminePlayerMovementDirection(Player player);
+        void HandleGooseCaseException(Player player);
         void MovePlayerForwards(Player player);
         void MovePlayerBackwards(Player player);
     }
