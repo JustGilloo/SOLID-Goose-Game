@@ -27,7 +27,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
                 EmptyWell();
             }
             TrapPlayerInWell(player);
-            logger.LogMessage($"{player.PlayerName} landde op vakje {player.CurrentPosition} en viel in de waterput!");
+            logger.LogMessage($"{player.PlayerName} landde op vakje {player.CurrentPosition} en viel in de waterput! Hopelijk kan iemand je redden door op de waterput te landen!");
         }
         public bool CheckIfWellContainsPlayer()
         {
