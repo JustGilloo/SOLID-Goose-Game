@@ -12,8 +12,8 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class EndCase : IEndCase
     {
-        IGameState gameState;
-        IGameBoard gameBoard;
+        private IGameState gameState;
+        private IGameBoard gameBoard;
         public int ID { get; set; }
         public CaseType Type { get; set; }
         

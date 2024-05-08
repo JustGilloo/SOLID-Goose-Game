@@ -1,21 +1,22 @@
 ﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
+using SOLID_Goose_Game.Logging;
 
 namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class WellCase : IWellCase
     {
-        IGameState gameState;
+        private ILogger logger;
         public int ID { get; set; }
         public CaseType Type { get; set; }
         public Player[] TrappedPlayerArray { get; set; }
 
-        public WellCase(int id, CaseType type, IGameState gameState)
+        public WellCase(int id, CaseType type, ILogger logger)
         {
             ID = id;
             Type = type;
-            this.gameState = gameState;
+            this.logger = logger;
             TrappedPlayerArray = new Player[1];
         }
 
@@ -26,7 +27,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
                 EmptyWell();
             }
             TrapPlayerInWell(player);
-            gameState.PrintGameState(Type.ToString());
+            logger.LogMessage($"{player.PlayerName} landde op vakje {player.CurrentPosition} en viel in de waterput!");
         }
         public bool CheckIfWellContainsPlayer()
         {

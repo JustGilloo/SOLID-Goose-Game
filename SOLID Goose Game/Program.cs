@@ -1,9 +1,5 @@
-﻿using SOLID_Goose_Game.Business.Factories;
-using SOLID_Goose_Game.Business.GameBoard;
+﻿using Microsoft.Extensions.DependencyInjection;
 using SOLID_Goose_Game.Business.GameState;
-using SOLID_Goose_Game.Input;
-using SOLID_Goose_Game.Logging;
-using SOLID_Goose_Game.UserInput;
 
 namespace SOLID_Goose_Game
 {
@@ -11,7 +7,15 @@ namespace SOLID_Goose_Game
     {
         static void Main(string[] args)
         {
+            ServiceCollection services = new ServiceCollection();
+            StartupConfiguration startupConfiguration = new StartupConfiguration();
+            services = startupConfiguration.RegisterServices();
+            ServiceProvider serviceProvider = services.BuildServiceProvider();
 
+
+            IGameState gameState = serviceProvider.GetService<IGameState>();
+
+            gameState.SetupGame();
         }
     }
 }

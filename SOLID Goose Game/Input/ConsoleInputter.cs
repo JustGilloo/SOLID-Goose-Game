@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SOLID_Goose_Game.Input
 {
-    public class UserInput : IUserInput
+    public class ConsoleInputter : IUserInput
     {
         public string GetUserInput()
         {
