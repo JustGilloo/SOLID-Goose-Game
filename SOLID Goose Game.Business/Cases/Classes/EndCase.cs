@@ -29,10 +29,13 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             CheckPlayerRollExceedsID(player);
-            gameState.PrintGameState(Type.ToString());
             if (gameState.IsGameOver == false)
             {
+                gameState.PrintGameState($"{player.PlayerName} gooide hoger dan 63 en werd teruggestuurd naar vakje {player.CurrentPosition}");
                 gameBoard.HandleCaseType(player);
+            } else
+            {
+                gameState.PrintGameState($"{player.PlayerName} kwam aan op vakje {player.CurrentPosition}! {player.PlayerName} wint!");
             }
         }
         public void CheckPlayerRollExceedsID(Player player)
