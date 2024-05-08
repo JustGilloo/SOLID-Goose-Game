@@ -1,7 +1,7 @@
 ﻿using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Interfaces
 {
     public class InnCase : IInnCase
     {
@@ -11,15 +11,15 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public InnCase(int id, CaseType type, IGameState gameState)
         {
-            this.ID = id;
-            this.Type = type;
+            ID = id;
+            Type = type;
             this.gameState = gameState;
         }
 
         public void ResolveCase(Player player)
         {
             ApplyInnCaseEffect(player);
-            this.gameState.PrintGameState(this.Type.ToString());
+            gameState.PrintGameState(Type.ToString());
         }
         public void ApplyInnCaseEffect(Player player)
         {

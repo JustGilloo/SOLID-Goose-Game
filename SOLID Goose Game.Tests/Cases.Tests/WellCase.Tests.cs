@@ -1,4 +1,4 @@
-﻿using SOLID_Goose_Game.Business.Cases;
+﻿using SOLID_Goose_Game.Business.Cases.Classes;
 using SOLID_Goose_Game.Business.Factories;
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;

@@ -1,4 +1,5 @@
-﻿using SOLID_Goose_Game.Business.GameState;
+﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
+using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class RegularCase : ICase
     {
@@ -17,14 +18,14 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public RegularCase(int id, CaseType type, IGameState gameState)
         {
-            this.ID = id;
-            this.Type = type;
+            ID = id;
+            Type = type;
             this.gameState = gameState;
         }
 
         public void ResolveCase(Player player)
         {
-            this.gameState.PrintGameState(this.Type.ToString());
+            gameState.PrintGameState(Type.ToString());
         }
     }
 }

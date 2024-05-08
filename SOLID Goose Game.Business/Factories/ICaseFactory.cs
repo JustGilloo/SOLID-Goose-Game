@@ -1,4 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.Cases;
+using SOLID_Goose_Game.Business.Cases.Interfaces;
 using SOLID_Goose_Game.Business.GameState;
 using System;
 using System.Collections.Generic;

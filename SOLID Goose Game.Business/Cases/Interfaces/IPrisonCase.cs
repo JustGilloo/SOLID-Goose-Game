@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Interfaces
 {
-    public interface ICase
+    public interface IPrisonCase : ICase
     {
-        int ID { get; set; }
-        CaseType Type { get; set; }
-        void ResolveCase(Player player);
+        void ApplyPrisonCaseEffect(Player player);
     }
 }

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Interfaces
 {
-    public interface IPrisonCase : ICase
+    public interface IDeathCase : ICase
     {
-        void ApplyPrisonCaseEffect(Player player);
+        void ApplyDeathCaseEffect(Player player);
     }
 }
