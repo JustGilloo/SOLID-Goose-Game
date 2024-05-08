@@ -21,7 +21,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             ApplyInnCaseEffect(player);
-            logger.LogMessage(this.Type.ToString());
+            logger.LogMessage($"{player.PlayerName} landde op een herberg en blijft er {player.EffectDurationInTurns} beurten slapen.");
         }
         public void ApplyInnCaseEffect(Player player)
         {
