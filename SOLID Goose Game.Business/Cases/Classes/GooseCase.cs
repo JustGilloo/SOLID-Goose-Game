@@ -30,7 +30,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             DeterminePlayerMovementDirection(player);
-            logger.LogMessage(this.Type.ToString());
+            logger.LogMessage($"{player.PlayerName} kwam terecht op een Ganzenvakje en werd gestuurd naar vakje {player.CurrentPosition}.");
             gameBoard.HandleCaseType(player);
         }
         public void DeterminePlayerMovementDirection(Player player)
