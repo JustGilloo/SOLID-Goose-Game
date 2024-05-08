@@ -26,7 +26,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             ApplyMazeCase(player);
-            logger.LogMessage(this.Type.ToString());
+            logger.LogMessage($"{player.PlayerName} kwam terecht in het labyrinth en werd teruggestuurd naar vakje {player.CurrentPosition}.");
         }
         public void ApplyMazeCase(Player player)
         {
