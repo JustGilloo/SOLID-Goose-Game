@@ -26,7 +26,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
 
         public void ResolveCase(Player player)
         {
-            logger.LogMessage(this.Type.ToString());
+            logger.LogMessage($"{player.PlayerName} landde vakje {this.ID}. Er gebeurde niets!");
         }
     }
 }
