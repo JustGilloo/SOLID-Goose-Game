@@ -1,8 +1,10 @@
-﻿using SOLID_Goose_Game.Business.Cases.Classes;
+﻿using Moq;
+using SOLID_Goose_Game.Business.Cases.Classes;
 using SOLID_Goose_Game.Business.Factories;
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
+using SOLID_Goose_Game.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,8 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            IGameState gameState = new GameState();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            IGameState gameState = new GameState((ILogger)logger);
             Player player = new Player("Speler");
             int[] dieRolls = new int[2];
             dieRolls = [4, 2];
@@ -43,7 +46,8 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            IGameState gameState = new GameState();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            IGameState gameState = new GameState((ILogger)logger);
             Player player1 = new Player("Speler 1");
             Player player2 = new Player("Speler 2");
             int[] dieRolls = new int[2];

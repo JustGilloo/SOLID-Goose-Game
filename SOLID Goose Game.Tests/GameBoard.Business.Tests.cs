@@ -6,6 +6,8 @@ using System.Diagnostics;
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 using System.Threading.Tasks;
+using Moq;
+using SOLID_Goose_Game.Logging;
 namespace SOLID_Goose_Game.Tests
 {
     public class Tests
@@ -20,7 +22,8 @@ namespace SOLID_Goose_Game.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            IGameState gameState = new GameState();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            IGameState gameState = new GameState((ILogger)logger);
             IGameBoard gameboard = new GameBoard(caseFactory, gameState);
 
             //Act
@@ -35,7 +38,8 @@ namespace SOLID_Goose_Game.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            IGameState gameState = new GameState();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            IGameState gameState = new GameState((ILogger)logger);
             IGameBoard gameboard = new GameBoard(caseFactory, gameState);
 
             //Act & Assert

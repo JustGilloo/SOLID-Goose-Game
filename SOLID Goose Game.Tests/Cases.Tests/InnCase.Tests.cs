@@ -1,7 +1,9 @@
-﻿using SOLID_Goose_Game.Business.Factories;
+﻿using Moq;
+using SOLID_Goose_Game.Business.Factories;
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
+using SOLID_Goose_Game.Logging;
 
 namespace SOLID_Goose_Game.Tests.Cases.Tests
 {
@@ -12,7 +14,8 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
-            IGameState gameState = new GameState();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            IGameState gameState = new GameState((ILogger)logger);
             Player player = new Player("Speler");
             player.StartingPosition = 17;
             player.CurrentPosition = 17;

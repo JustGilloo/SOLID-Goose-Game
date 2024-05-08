@@ -18,7 +18,6 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public DeathCase(int id, CaseType type, IGameState gameState)
         {
             ID = id;
-            Type = type;
             this.gameState = gameState;
         }
 
