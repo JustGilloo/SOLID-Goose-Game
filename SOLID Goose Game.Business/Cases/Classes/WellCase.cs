@@ -2,7 +2,7 @@
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class WellCase : IWellCase
     {
@@ -13,10 +13,10 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public WellCase(int id, CaseType type, IGameState gameState)
         {
-            this.ID = id;
-            this.Type = type;
+            ID = id;
+            Type = type;
             this.gameState = gameState;
-            this.TrappedPlayerArray = new Player[1];
+            TrappedPlayerArray = new Player[1];
         }
 
         public void ResolveCase(Player player)
@@ -26,21 +26,21 @@ namespace SOLID_Goose_Game.Business.Cases
                 EmptyWell();
             }
             TrapPlayerInWell(player);
-            this.gameState.PrintGameState(this.Type.ToString());
+            gameState.PrintGameState(Type.ToString());
         }
         public bool CheckIfWellContainsPlayer()
         {
-            return (this.TrappedPlayerArray[0] != null);
+            return TrappedPlayerArray[0] != null;
         }
         public void TrapPlayerInWell(Player player)
         {
             player.CanMove = false;
-            this.TrappedPlayerArray[0] = player;
+            TrappedPlayerArray[0] = player;
         }
         public void EmptyWell()
         {
-            this.TrappedPlayerArray[0].CanMove = true;
-            this.TrappedPlayerArray[0] = null;
+            TrappedPlayerArray[0].CanMove = true;
+            TrappedPlayerArray[0] = null;
         }
     }
 }

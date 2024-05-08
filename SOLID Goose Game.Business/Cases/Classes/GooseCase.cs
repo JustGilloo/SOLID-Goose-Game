@@ -1,4 +1,5 @@
 ﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
+using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 using System;
@@ -12,20 +13,23 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
     public class GooseCase : IGooseCase
     {
         IGameState gameState;
+        IGameBoard gameBoard;
         public int ID { get; set; }
         public CaseType Type { get; set; }
 
-        public GooseCase(int id, CaseType type, IGameState gameState)
+        public GooseCase(int id, CaseType type, IGameState gameState, IGameBoard gameBoard)
         {
             ID = id;
             Type = type;
             this.gameState = gameState;
+            this.gameBoard = gameBoard;
         }
 
         public void ResolveCase(Player player)
         {
             DeterminePlayerMovementDirection(player);
             gameState.PrintGameState(Type.ToString());
+            gameBoard.HandleCaseType(player);
         }
         public void DeterminePlayerMovementDirection(Player player)
         {
@@ -44,7 +48,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         }
         public void MovePlayerBackwards(Player player)
         {
-            throw new NotImplementedException();
+            player.CurrentPosition -= player.DiceResultArray.Sum();
         }
     }
 }

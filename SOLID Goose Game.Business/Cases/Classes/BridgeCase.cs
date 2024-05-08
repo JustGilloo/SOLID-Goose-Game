@@ -1,4 +1,5 @@
-﻿using SOLID_Goose_Game.Business.GameState;
+﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
+using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class BridgeCase : IBridgeCase
     {
@@ -16,15 +17,15 @@ namespace SOLID_Goose_Game.Business.Cases
 
         public BridgeCase(int id, CaseType type, IGameState gameState)
         {
-            this.ID = id;
-            this.Type = type;
+            ID = id;
+            Type = type;
             this.gameState = gameState;
         }
 
         public void ResolveCase(Player player)
         {
             ApplyBridgeCaseEffect(player);
-            this.gameState.PrintGameState($"{player.PlayerName} landde op een brug en sprong meteen naar vakje {player.CurrentPosition}.");
+            gameState.PrintGameState($"{player.PlayerName} landde op een brug en sprong meteen naar vakje {player.CurrentPosition}.");
         }
 
         public void ApplyBridgeCaseEffect(Player player)

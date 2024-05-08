@@ -1,5 +1,6 @@
 ﻿using SOLID_Goose_Game.Business.Cases;
 using SOLID_Goose_Game.Business.Cases.Interfaces;
+using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,6 @@ namespace SOLID_Goose_Game.Business.Factories
 {
     public interface ICaseFactory
     {
-        ICase Create(CaseType caseType, int ID, IGameState gameState);
+        ICase Create(CaseType caseType, int ID, IGameState gameState, IGameBoard gameBoard);
     }
 }

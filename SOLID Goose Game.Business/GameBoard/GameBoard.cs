@@ -25,11 +25,11 @@ namespace SOLID_Goose_Game.Business.GameBoard
             {
                 if ((i % 9 != 0 && i % 9 != 5) || i == 0 || i == Boardsize.Length - 1)
                 {
-                    this.Boardsize[i] = this.caseFactory.Create((CaseType)i, i, this.gameState);
+                    this.Boardsize[i] = this.caseFactory.Create((CaseType)i, i, this.gameState, this);
                 }
                 else
                 {
-                    this.Boardsize[i] = this.caseFactory.Create(CaseType.Goose, i, this.gameState);
+                    this.Boardsize[i] = this.caseFactory.Create(CaseType.Goose, i, this.gameState, this);
                 }
             }
         }
@@ -39,6 +39,9 @@ namespace SOLID_Goose_Game.Business.GameBoard
             if (player.CurrentPosition < 63)
             {
                 Boardsize[player.CurrentPosition].ResolveCase(player);
+            } else
+            {
+                Boardsize[63].ResolveCase(player);
             }
         }
     }

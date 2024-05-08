@@ -1,7 +1,8 @@
-﻿using SOLID_Goose_Game.Business.GameState;
+﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
+using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 
-namespace SOLID_Goose_Game.Business.Cases.Interfaces
+namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class InnCase : IInnCase
     {

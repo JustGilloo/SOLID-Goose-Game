@@ -1,4 +1,6 @@
-﻿using SOLID_Goose_Game.Business.GameState;
+﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
+using SOLID_Goose_Game.Business.GameBoard;
+using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 using System;
 using System.Collections.Generic;
@@ -6,32 +8,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Business.Cases
+namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class EndCase : IEndCase
     {
         IGameState gameState;
+        IGameBoard gameBoard;
         public int ID { get; set; }
         public CaseType Type { get; set; }
+        
 
-        public EndCase(int id, CaseType type, IGameState gameState)
+        public EndCase(int id, CaseType type, IGameState gameState, IGameBoard gameboard)
         {
-            this.ID = id;
-            this.Type = type;
+            ID = id;
+            Type = type;
             this.gameState = gameState;
+            this.gameBoard = gameboard;
         }
 
         public void ResolveCase(Player player)
         {
-            this.gameState.PrintGameState(this.Type.ToString());
+            CheckPlayerRollExceedsID(player);
+            gameState.PrintGameState(Type.ToString());
+            gameBoard.HandleCaseType(player);
         }
         public void CheckPlayerRollExceedsID(Player player)
         {
-            throw new NotImplementedException();
+            if (player.CurrentPosition > 63) 
+            {
+                MovePlayerBack(player);
+            } else
+            {
+                gameState.IsGameOver = true;
+            }
         }
         public void MovePlayerBack(Player player)
         {
-            throw new NotImplementedException();
+            int spacesToGoBack = player.CurrentPosition - 63;
+            player.CurrentPosition = 63 - spacesToGoBack;
         }
     }
 }

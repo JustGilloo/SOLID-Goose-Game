@@ -38,7 +38,25 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
         [Test]
         public void AssertsIfPlayerMovementDirectionNeedsToBeBackwardsWhenGooseCaseIsTriggered()
         {
-            
+            //Arrange
+            ICaseFactory caseFactory = new CaseFactory();
+            IGameState gameState = new GameState();
+            Player player = new Player("Speler");
+            player.CurrentPosition = 62;
+            player.StartingPosition = 62;
+            int[] dieRolls = [2, 3];
+            IGameBoard gameBoard = new GameBoard(caseFactory, gameState);
+
+            int expectedPosition = 49;
+
+            //Act
+            gameBoard.FillInBoardCases();
+            player.DetermineNewPosition(dieRolls);
+            gameBoard.HandleCaseType(player);
+
+
+            //Assert
+            Assert.AreEqual(expectedPosition, player.CurrentPosition);
         }
     }
 }
