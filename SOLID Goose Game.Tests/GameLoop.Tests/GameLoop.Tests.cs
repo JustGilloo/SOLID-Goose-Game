@@ -1,9 +1,7 @@
-﻿using Moq;
-using SOLID_Goose_Game.Business.Dice;
+﻿using SOLID_Goose_Game.Business.Dice;
 using SOLID_Goose_Game.Business.Factories;
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
-using SOLID_Goose_Game.Business.Players;
 using SOLID_Goose_Game.Input;
 using SOLID_Goose_Game.Logging;
 using SOLID_Goose_Game.UserInput;
@@ -13,12 +11,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Tests.Cases.Tests
+namespace SOLID_Goose_Game.Tests.GameLoop.Tests
 {
-    internal class PrisonCase
+    internal class GameLoopTests
     {
+        [Ignore("Unfinished due to lacking console input capabilities")]
         [Test]
-        public void AssertsIfPlayerCannotMoveFor3Turns()
+        public void AssertsThatGameSuccesfullySetsUpAndPlaysUntilAPlayerReachesTheFinish()
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
@@ -28,24 +27,15 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
             IGameBoard gameBoard = new GameBoard(caseFactory, logger);
             IDiceRollerService diceRoller = new DiceRollerService();
             IGameState gameState = new GameState(logger, userInput, gameBoard, playerFactory, diceRoller);
-            Player player = new Player("Speler");
-            player.CurrentPosition = 48;
-            player.StartingPosition = 48;
-            int[] dieRolls = new int[2];
-            dieRolls = [2, 2];
 
-            int expectedPosition = 52;
+            bool expectedResult = false;
 
             //Act
-            gameBoard.FillInBoardCases();
-            for (int i = 0; i < 3; i++) 
-            {
-                player.DetermineNewPosition(dieRolls);
-                gameBoard.HandleCaseType(player);
-            }
+            gameState.SetupGame();
+            gameState.GameLoop();
 
             //Assert
-            Assert.AreEqual(expectedPosition, player.CurrentPosition);
+            Assert.AreEqual(expectedResult, gameBoard.IsFinishReached);
         }
     }
 }

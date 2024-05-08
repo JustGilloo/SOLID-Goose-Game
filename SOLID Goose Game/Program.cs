@@ -16,6 +16,7 @@ namespace SOLID_Goose_Game
             IGameState gameState = serviceProvider.GetService<IGameState>();
 
             gameState.SetupGame();
+            gameState.GameLoop();
         }
     }
 }

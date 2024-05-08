@@ -13,7 +13,8 @@ namespace SOLID_Goose_Game.Business.GameState
         List<IPlayer> ParticipatingPlayers { get; set; }
         void PrintGameState(string message);
         void SetupGame();
-        bool ResolvePlayerTurn(Player player);
+        bool ResolvePlayerTurn(int indexToFetch);
+        IPlayer FetchActiveTurnPlayer(int indexToFetch);
         void GameLoop();
     }
 }
