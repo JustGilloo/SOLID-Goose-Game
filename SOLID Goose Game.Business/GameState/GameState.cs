@@ -1,4 +1,5 @@
-﻿using SOLID_Goose_Game.Business.GameBoard;
+﻿using SOLID_Goose_Game.Business.Factories;
+using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.Players;
 using SOLID_Goose_Game.Logging;
 using SOLID_Goose_Game.UserInput;
@@ -10,15 +11,19 @@ namespace SOLID_Goose_Game.Business.GameState
         private ILogger logger;
         private IUserInput userInput;
         private IGameBoard gameBoard;
+        private IPlayerFactory playerFactory;
 
-        public GameState(ILogger logger, IUserInput userInput, IGameBoard gameBoard)
+        public GameState(ILogger logger, IUserInput userInput, IGameBoard gameBoard, IPlayerFactory playerFactory)
         {
             this.logger = logger;
             this.userInput = userInput;
             this.gameBoard = gameBoard;
+            this.playerFactory = playerFactory;
             this.IsGameOver = false;
+            this.ParticipatingPlayers = new List<IPlayer>();
         }
         public bool IsGameOver { get; set; }
+        public List<IPlayer> ParticipatingPlayers { get; set; }
 
         public void PrintGameState(string message)
         {
@@ -32,26 +37,23 @@ namespace SOLID_Goose_Game.Business.GameState
             do
             {
                 userinput = userInput.ValidateIfInputIsInt(userInput.GetUserInput());
-                if (userinput == -1)
+                if (userinput > 4 || userinput < 2)
                 {
                     logger.ClearLogger();
-                    logger.LogMessage("U gaf geen geldig getal in. Gelieve een getal van tot en met 4 in te geven.");
+                    logger.LogMessage("U gaf geen (geldige) numerieke waarde in. Gelieve een getal van tot en met 4 in te geven.");
                 }
-            } while (userinput > 4 || userinput < 0);
+            } while (userinput > 4 || userinput < 2);
             for (int i = 0; i < userinput; i++)
             {
-                PrintGameState($"Geef een naam in voor speler {i}:");
-                this.CreatePlayer(userInput.GetUserInput());
+                logger.ClearLogger();
+                PrintGameState($"Geef een naam in voor speler {i + 1}:");
+                this.ParticipatingPlayers.Add(this.playerFactory.Create(PlayerType.Regular, this.userInput.GetUserInput()));
                 logger.ClearLogger();
             }
-            PrintGameState("Zet je klaar, ganzen maar! 🦆");
             this.gameBoard.FillInBoardCases();
-            PrintGameState("Druk op enter om te beginnen!");
+            PrintGameState("Zet je klaar, ganzen maar!");
+            PrintGameState("Druk op ENTER om te beginnen!");
             this.userInput.GetUserInput();
-        }
-        public void CreatePlayer(string playerName)
-        {
-
         }
         public bool ResolvePlayerTurn(Player player)
         {

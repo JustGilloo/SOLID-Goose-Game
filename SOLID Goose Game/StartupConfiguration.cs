@@ -23,6 +23,7 @@ namespace SOLID_Goose_Game
             services.AddScoped<ILogger, ConsoleLogger>();
             services.AddScoped<IUserInput, ConsoleInputter>();
             services.AddScoped<ICaseFactory, CaseFactory>();
+            services.AddScoped<IPlayerFactory, PlayerFactory>();
             services.AddSingleton<IGameState, GameState>();
             services.AddSingleton<IGameBoard, GameBoard>();
             return services;

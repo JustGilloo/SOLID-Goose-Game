@@ -10,9 +10,9 @@ namespace SOLID_Goose_Game.Business.GameState
     public interface IGameState
     {
         bool IsGameOver { get; set; }
+        List<IPlayer> ParticipatingPlayers { get; set; }
         void PrintGameState(string message);
         void SetupGame();
-        void CreatePlayer(string playerName);
         bool ResolvePlayerTurn(Player player);
         void GameLoop();
     }
