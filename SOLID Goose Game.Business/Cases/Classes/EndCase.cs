@@ -2,6 +2,7 @@
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
+using SOLID_Goose_Game.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,30 +13,30 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
 {
     public class EndCase : IEndCase
     {
-        private IGameState gameState;
         private IGameBoard gameBoard;
+        private ILogger logger;
         public int ID { get; set; }
         public CaseType Type { get; set; }
         
 
-        public EndCase(int id, CaseType type, IGameState gameState, IGameBoard gameboard)
+        public EndCase(int id, CaseType type, IGameBoard gameboard, ILogger logger)
         {
             ID = id;
             Type = type;
-            this.gameState = gameState;
             this.gameBoard = gameboard;
+            this.logger = logger;
         }
 
         public void ResolveCase(Player player)
         {
             CheckPlayerRollExceedsID(player);
-            if (gameState.IsGameOver == false)
+            if (gameBoard.IsFinishReached == false)
             {
-                gameState.PrintGameState($"{player.PlayerName} gooide hoger dan 63 en werd teruggestuurd naar vakje {player.CurrentPosition}");
+                this.logger.LogMessage($"{player.PlayerName} gooide hoger dan 63 en werd teruggestuurd naar vakje {player.CurrentPosition}");
                 gameBoard.HandleCaseType(player);
             } else
             {
-                gameState.PrintGameState($"{player.PlayerName} kwam aan op vakje {player.CurrentPosition}! {player.PlayerName} wint!");
+                this.logger.LogMessage($"{player.PlayerName} kwam aan op vakje {player.CurrentPosition}! {player.PlayerName} wint!");
             }
         }
         public void CheckPlayerRollExceedsID(Player player)
@@ -45,7 +46,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
                 MovePlayerBack(player);
             } else
             {
-                gameState.IsGameOver = true;
+                gameBoard.IsFinishReached = true;
             }
         }
         public void MovePlayerBack(Player player)

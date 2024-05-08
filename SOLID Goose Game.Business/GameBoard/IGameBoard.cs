@@ -11,6 +11,7 @@ namespace SOLID_Goose_Game.Business.GameBoard
     public interface IGameBoard
     {
         ICase[] Boardsize { get; }
+        bool IsFinishReached { get; set; }
 
         void FillInBoardCases();
 
