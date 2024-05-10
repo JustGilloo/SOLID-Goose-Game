@@ -1,23 +1,25 @@
-﻿using SOLID_Goose_Game.Business.Dice;
+﻿using SOLID_Goose_Game.Business.Cases.Classes;
+using SOLID_Goose_Game.Business.Dice;
 using SOLID_Goose_Game.Business.Factories;
 using SOLID_Goose_Game.Business.GameBoard;
 using SOLID_Goose_Game.Business.GameState;
+using SOLID_Goose_Game.Business.Players;
 using SOLID_Goose_Game.Input;
 using SOLID_Goose_Game.Logging;
 using SOLID_Goose_Game.UserInput;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID_Goose_Game.Tests.GameLoop.Tests
+namespace SOLID_Goose_Game.Tests.Cases.Tests
 {
-    internal class GameLoopTests
+    internal class RegularCase
     {
-        [Ignore("Unfinished due to lacking console input capabilities")]
         [Test]
-        public void AssertsThatGameSuccesfullySetsUpAndPlaysUntilAPlayerReachesTheFinish()
+        public void AssertsThatPlayerCorrectlyLandsOnRegularCase30WithCorrectStandardOutput()
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
@@ -27,15 +29,22 @@ namespace SOLID_Goose_Game.Tests.GameLoop.Tests
             IGameBoard gameBoard = new GameBoard(caseFactory, logger);
             IDiceRollerService diceRoller = new DiceRollerService();
             IGameState gameState = new GameState(logger, userInput, gameBoard, playerFactory, diceRoller);
+            Player player = new Player("Speler 1");
+            int[] dieRolls = new int[2];
+            dieRolls = [3, 2];
 
-            bool expectedResult = false;
+            player.CurrentPosition = 25;
+            player.StartingPosition = 25;
+
+            int expectedPosition = 30;
 
             //Act
-            gameState.SetupGame();
-            gameState.GameLoop();
+            gameBoard.FillInBoardCases();
+            player.DetermineNewPosition(dieRolls);
+            gameBoard.HandleCaseType(player);
 
             //Assert
-            Assert.AreEqual(expectedResult, gameBoard.IsFinishReached);
+            Assert.AreEqual(expectedPosition, player.CurrentPosition);
         }
     }
 }
