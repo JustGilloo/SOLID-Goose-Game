@@ -13,5 +13,6 @@ namespace SOLID_Goose_Game.Business.Cases.Interfaces
         bool CheckIfWellContainsPlayer();
         void TrapPlayerInWell(Player player);
         void EmptyWell();
+        void DisplayWellEffectMesage(Player player);
     }
 }

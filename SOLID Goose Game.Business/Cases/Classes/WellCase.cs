@@ -1,5 +1,4 @@
 ﻿using SOLID_Goose_Game.Business.Cases.Interfaces;
-using SOLID_Goose_Game.Business.GameState;
 using SOLID_Goose_Game.Business.Players;
 using SOLID_Goose_Game.Logging;
 
@@ -27,7 +26,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
                 EmptyWell();
             }
             TrapPlayerInWell(player);
-            logger.LogMessage($"{player.PlayerName} landde op vakje {player.CurrentPosition} en viel in de waterput! Hopelijk kan iemand je redden door op de waterput te landen!");
+            DisplayWellEffectMesage(player);
         }
         public bool CheckIfWellContainsPlayer()
         {
@@ -36,12 +35,29 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void TrapPlayerInWell(Player player)
         {
             player.CanMove = false;
+            player.EffectDurationInTurns = -1;
             TrappedPlayerArray[0] = player;
         }
         public void EmptyWell()
         {
             TrappedPlayerArray[0].CanMove = true;
+            TrappedPlayerArray[0].EffectDurationInTurns = 0;
             TrappedPlayerArray[0] = null;
+        }
+
+        public void DisplayWellEffectMesage(Player player)
+        {
+            if (player.StartingPosition < this.ID)
+            {
+                logger.LogMessage($"{player.PlayerName} landde op vakje {player.CurrentPosition} en viel in de waterput! Hopelijk kan iemand je redden door op de waterput te landen!");
+            }
+            else if (player.EffectDurationInTurns == -1)
+            {
+                logger.LogMessage($"{player.PlayerName} zit vast in de waterput! Hopelijk kan iemand je redden door op de waterput te landen!");
+            } else if (TrappedPlayerArray[0] != player)
+            {
+                logger.LogMessage($"{TrappedPlayerArray[0].PlayerName} werd bevrijd uit de waterput door {player.PlayerName}!");
+            }
         }
     }
 }
