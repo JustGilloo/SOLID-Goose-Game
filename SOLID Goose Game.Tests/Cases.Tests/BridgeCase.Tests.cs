@@ -18,7 +18,7 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
     internal class BridgeCase
     {
         [Test]
-        public void CheckIBridgeCaseMovesPlayerTo12()
+        public void CheckIfBridgeCaseMovesPlayerTo12()
         {
             //Arrange
             ICaseFactory caseFactory = new CaseFactory();
