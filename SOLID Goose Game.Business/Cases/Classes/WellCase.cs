@@ -54,9 +54,6 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
             else if (player.EffectDurationInTurns == -1)
             {
                 logger.LogMessage($"{player.PlayerName} zit vast in de waterput! Hopelijk kan iemand je redden door op de waterput te landen!");
-            } else if (TrappedPlayerArray[0] != player)
-            {
-                logger.LogMessage($"{TrappedPlayerArray[0].PlayerName} werd bevrijd uit de waterput door {player.PlayerName}!");
             }
         }
     }
