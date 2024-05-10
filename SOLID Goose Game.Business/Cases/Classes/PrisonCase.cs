@@ -26,7 +26,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             ApplyPrisonCaseEffect(player);
-            logger.LogMessage($"{player.PlayerName} landde op de gevangenis en blijft er {player.EffectDurationInTurns} beurten opgesloten.");
+            DisplayPrisonEffectTurnMessage(player);
         }
 
         public void ApplyPrisonCaseEffect(Player player)
@@ -44,6 +44,20 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
                         player.CanMove = true;
                     }
                     break;
+            }
+        }
+
+        public void DisplayPrisonEffectTurnMessage(Player player)
+        {
+            if (player.EffectDurationInTurns == 3)
+            {
+                logger.LogMessage($"{player.PlayerName} landde op de gevangenis en blijft er {player.EffectDurationInTurns} beurten opgesloten.");
+            } else if (player.CanMove == false)
+            {
+                logger.LogMessage($"{player.PlayerName} staat nog op de gevangenis en blijft er nog {player.EffectDurationInTurns} beurt(en) opgesloten.");
+            } else if (player.EffectDurationInTurns == 0)
+            {
+                logger.LogMessage($"{player.PlayerName} staat nog op de gevangenis en komt volgende beurt vrij!.");
             }
         }
     }

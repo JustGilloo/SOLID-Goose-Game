@@ -10,5 +10,6 @@ namespace SOLID_Goose_Game.Business.Cases.Interfaces
     public interface IPrisonCase : ICase
     {
         void ApplyPrisonCaseEffect(Player player);
+        void DisplayPrisonEffectTurnMessage(Player player);
     }
 }
