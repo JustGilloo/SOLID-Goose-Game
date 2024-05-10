@@ -21,7 +21,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         public void ResolveCase(Player player)
         {
             ApplyInnCaseEffect(player);
-            logger.LogMessage($"{player.PlayerName} landde op een herberg en blijft er {player.EffectDurationInTurns} beurt slapen.");
+            DisplayInnCaseEffectMessage(player);
         }
         public void ApplyInnCaseEffect(Player player)
         {
@@ -43,10 +43,10 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         {
             if (player.EffectDurationInTurns == 1)
             {
-                logger.LogMessage($"{player.PlayerName} landde op een herberg en blijft er {player.EffectDurationInTurns} beurt slapen.");
+                logger.LogMessage($"{player.PlayerName} landde op de herberg en blijft er {player.EffectDurationInTurns} beurt slapen.");
             } else if (player.EffectDurationInTurns == 0)
             {
-                logger.LogMessage($"{player.PlayerName} is nog in een herberg en gaat volgende beurt terug verder.");
+                logger.LogMessage($"{player.PlayerName} is nog in de herberg en gaat volgende beurt terug verder.");
             }
         }
     }

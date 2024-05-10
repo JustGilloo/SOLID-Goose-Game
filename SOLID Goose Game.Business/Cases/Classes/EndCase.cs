@@ -32,7 +32,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
             CheckPlayerRollExceedsID(player);
             if (gameBoard.IsFinishReached == false)
             {
-                this.logger.LogMessage($"{player.PlayerName} gooide hoger dan 63 en werd teruggestuurd naar vakje {player.CurrentPosition}");
+                this.logger.LogMessage($"{player.PlayerName} gooide hoger dan 63 en werd teruggestuurd naar vakje {player.CurrentPosition}.");
                 gameBoard.HandleCaseType(player);
             } else
             {
