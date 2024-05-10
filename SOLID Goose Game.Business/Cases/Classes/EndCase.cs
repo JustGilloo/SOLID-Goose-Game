@@ -41,7 +41,7 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         }
         public void CheckPlayerRollExceedsID(Player player)
         {
-            if (player.CurrentPosition > 63) 
+            if (player.CurrentPosition > this.ID) 
             {
                 MovePlayerBack(player);
             } else
@@ -51,8 +51,9 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
         }
         public void MovePlayerBack(Player player)
         {
-            int spacesToGoBack = player.CurrentPosition - 63;
-            player.CurrentPosition = 63 - spacesToGoBack;
+            int spacesToGoBack = player.CurrentPosition - this.ID;
+            player.StartingPosition = this.ID;
+            player.CurrentPosition = this.ID - spacesToGoBack;
         }
     }
 }

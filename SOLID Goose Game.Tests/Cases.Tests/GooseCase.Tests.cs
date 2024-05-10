@@ -56,9 +56,9 @@ namespace SOLID_Goose_Game.Tests.Cases.Tests
             IDiceRollerService diceRoller = new DiceRollerService();
             IGameState gameState = new GameState(logger, userInput, gameBoard, playerFactory, diceRoller);
             Player player = new Player("Speler");
-            player.CurrentPosition = 62;
-            player.StartingPosition = 62;
-            int[] dieRolls = [2, 3];
+            player.CurrentPosition = 57;
+            player.StartingPosition = 57;
+            int[] dieRolls = [5, 5];
 
             int expectedPosition = 49;
 

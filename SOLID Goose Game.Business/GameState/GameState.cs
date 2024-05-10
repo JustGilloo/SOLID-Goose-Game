@@ -65,9 +65,13 @@ namespace SOLID_Goose_Game.Business.GameState
             //Speler oproepen om te bewegen
             player.SetStartingPosition();
             player.DetermineNewPosition(this.diceRoller.RollDiceArray(2, 6));
-            //Gameboard check waarop speler landt
+            if (player.CanMove)
+            {
+                logger.LogMessage($"{player.PlayerName} rolde {player.DiceResultArray.Sum()} met de dobbelstenen.");
+            }
             this.gameBoard.HandleCaseType((Player)player);
-            logger.LogMessage("");
+            logger.LogEmptyLine();
+            userInput.GetUserInput();
             return (player.CurrentPosition == 63);
         }
         public IPlayer FetchActiveTurnPlayer(int indexToFetch)

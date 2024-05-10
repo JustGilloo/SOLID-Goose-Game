@@ -9,6 +9,7 @@ namespace SOLID_Goose_Game.Logging
     public interface ILogger
     {
         void LogMessage(string message);
+        void LogEmptyLine();
         void ClearLogger();
     }
 }

@@ -12,6 +12,10 @@ namespace SOLID_Goose_Game.Logging
         {
             Console.WriteLine(message);
         }
+        public void LogEmptyLine()
+        {
+            Console.WriteLine();
+        }
         public void ClearLogger()
         {
             Console.Clear();
