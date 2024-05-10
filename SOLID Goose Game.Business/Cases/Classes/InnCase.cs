@@ -38,5 +38,16 @@ namespace SOLID_Goose_Game.Business.Cases.Classes
             }
 
         }
+
+        public void DisplayInnCaseEffectMessage(Player player)
+        {
+            if (player.EffectDurationInTurns == 1)
+            {
+                logger.LogMessage($"{player.PlayerName} landde op een herberg en blijft er {player.EffectDurationInTurns} beurt slapen.");
+            } else if (player.EffectDurationInTurns == 0)
+            {
+                logger.LogMessage($"{player.PlayerName} is nog in een herberg en gaat volgende beurt terug verder.");
+            }
+        }
     }
 }

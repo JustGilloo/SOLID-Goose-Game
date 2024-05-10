@@ -10,5 +10,6 @@ namespace SOLID_Goose_Game.Business.Cases.Interfaces
     public interface IInnCase : ICase
     {
         void ApplyInnCaseEffect(Player player);
+        void DisplayInnCaseEffectMessage(Player player);
     }
 }
