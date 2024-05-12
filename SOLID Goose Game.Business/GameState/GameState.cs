@@ -57,6 +57,7 @@ namespace SOLID_Goose_Game.Business.GameState
             PrintGameState("Zet je klaar, ganzen maar!");
             PrintGameState("Druk op ENTER om te beginnen!");
             this.userInput.GetUserInput();
+            logger.ClearLogger();
         }
         public bool ResolvePlayerTurn(int indexToFetch)
         {
